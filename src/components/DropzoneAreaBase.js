@@ -1,8 +1,8 @@
-import Snackbar from '@material-ui/core/Snackbar';
-import Typography from '@material-ui/core/Typography';
-import {withStyles} from '@material-ui/core/styles';
-import AttachFileIcon from '@material-ui/icons/AttachFile';
-import CloudUploadIcon from '@material-ui/icons/CloudUpload';
+import Snackbar from '@mui/material/Snackbar';
+import Typography from '@mui/material/Typography';
+import withStyles from '@mui/styles/withStyles';
+import AttachFileIcon from '@mui/icons-material/AttachFile';
+import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import * as React from 'react';
@@ -25,10 +25,10 @@ const styles = ({palette, shape, spacing}) => ({
         position: 'relative',
         width: '100%',
         minHeight: '250px',
-        backgroundColor: palette.background.paper,
+        backgroundColor: palette?.background?.paper,
         border: 'dashed',
-        borderColor: palette.divider,
-        borderRadius: shape.borderRadius,
+        borderColor: palette?.divider,
+        borderRadius: shape?.borderRadius,
         boxSizing: 'border-box',
         cursor: 'pointer',
         overflow: 'hidden',
@@ -36,27 +36,27 @@ const styles = ({palette, shape, spacing}) => ({
     active: {
         animation: '$progress 2s linear infinite !important',
         // eslint-disable-next-line max-len
-        backgroundImage: `repeating-linear-gradient(-45deg, ${palette.background.paper}, ${palette.background.paper} 25px, ${palette.divider} 25px, ${palette.divider} 50px)`,
+        backgroundImage: `repeating-linear-gradient(-45deg, ${palette?.background?.paper}, ${palette?.background?.paper} 25px, ${palette?.divider} 25px, ${palette?.divider} 50px)`,
         backgroundSize: '150% 100%',
         border: 'solid',
-        borderColor: palette.primary.light,
+        borderColor: palette?.primary?.light,
     },
     invalid: {
         // eslint-disable-next-line max-len
-        backgroundImage: `repeating-linear-gradient(-45deg, ${palette.error.light}, ${palette.error.light} 25px, ${palette.error.dark} 25px, ${palette.error.dark} 50px)`,
-        borderColor: palette.error.main,
+        backgroundImage: `repeating-linear-gradient(-45deg, ${palette?.error?.light}, ${palette?.error?.light} 25px, ${palette?.error?.dark} 25px, ${palette?.error?.dark} 50px)`,
+        borderColor: palette?.error?.main,
     },
     textContainer: {
         textAlign: 'center',
     },
     text: {
-        marginBottom: spacing(3),
-        marginTop: spacing(3),
+        marginBottom: spacing?.(3),
+        marginTop: spacing?.(3),
     },
     icon: {
         width: 51,
         height: 51,
-        color: palette.text.primary,
+        color: palette?.text?.primary,
     },
 });
 
