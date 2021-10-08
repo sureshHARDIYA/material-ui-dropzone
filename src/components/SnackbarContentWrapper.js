@@ -1,6 +1,6 @@
 import IconButton from '@mui/material/IconButton';
 import SnackbarContent from '@mui/material/SnackbarContent';
-import withStyles from '@mui/styles/withStyles';
+import {withStyles} from '@mui/styles';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import CloseIcon from '@mui/icons-material/Close';
 import ErrorIcon from '@mui/icons-material/Error';
@@ -44,12 +44,13 @@ const styles = (theme) => ({
     closeButton: {},
 });
 
-function SnackbarContentWrapper(props) {
+function SnackbarContentWrapper(props, ref) {
     const {classes, className, message, onClose, variant, ...other} = props;
     const Icon = variantIcon[variant];
 
     return (
         <SnackbarContent
+            ref={ref}
             className={clsx(classes[`${variant}Alert`], className)}
             aria-describedby="client-snackbar"
             message={
@@ -65,7 +66,7 @@ function SnackbarContentWrapper(props) {
                     color="inherit"
                     className={classes.closeButton}
                     onClick={onClose}
-                    size="large">
+                >
                     <CloseIcon className={classes.icon} />
                 </IconButton>,
             ]}
@@ -82,4 +83,4 @@ SnackbarContentWrapper.propTypes = {
     variant: PropTypes.oneOf(['success', 'warning', 'error', 'info']).isRequired,
 };
 
-export default withStyles(styles, {name: 'MuiDropzoneSnackbar'})(SnackbarContentWrapper);
+export default withStyles(styles, {name: 'MuiDropzoneSnackbar'})(React.forwardRef(SnackbarContentWrapper));
