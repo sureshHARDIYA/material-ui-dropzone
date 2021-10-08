@@ -41,7 +41,7 @@
 ### Sample theme override
 
 ```jsx
-+import { createTheme, ThemeProvider,adaptV4Theme } from '@mui/material/styles';
+import { createTheme, ThemeProvider,adaptV4Theme } from '@mui/material/styles';
 
 
 import DropzoneArea from '../src/components/DropzoneArea';
