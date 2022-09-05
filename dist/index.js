@@ -16,29 +16,30 @@ var _getPrototypeOf = _interopDefault(require('@babel/runtime/helpers/getPrototy
 var _objectWithoutProperties = _interopDefault(require('@babel/runtime/helpers/objectWithoutProperties'));
 var PropTypes = _interopDefault(require('prop-types'));
 var React = require('react');
-var Snackbar = _interopDefault(require('@material-ui/core/Snackbar'));
-var Typography = _interopDefault(require('@material-ui/core/Typography'));
-var styles$3 = require('@material-ui/core/styles');
-var AttachFileIcon = _interopDefault(require('@material-ui/icons/AttachFile'));
-var CloudUploadIcon = _interopDefault(require('@material-ui/icons/CloudUpload'));
+var Snackbar = _interopDefault(require('@mui/material/Snackbar'));
+var Typography = _interopDefault(require('@mui/material/Typography'));
+var withStyles = _interopDefault(require('@mui/styles/withStyles'));
+var AttachFileIcon = _interopDefault(require('@mui/icons-material/AttachFile'));
+var CloudUploadIcon = _interopDefault(require('@mui/icons-material/CloudUpload'));
 var clsx = _interopDefault(require('clsx'));
 var Dropzone = _interopDefault(require('react-dropzone'));
-var Chip = _interopDefault(require('@material-ui/core/Chip'));
-var Fab = _interopDefault(require('@material-ui/core/Fab'));
-var Grid = _interopDefault(require('@material-ui/core/Grid'));
-var DeleteIcon = _interopDefault(require('@material-ui/icons/Delete'));
-var IconButton = _interopDefault(require('@material-ui/core/IconButton'));
-var SnackbarContent = _interopDefault(require('@material-ui/core/SnackbarContent'));
-var CheckCircleIcon = _interopDefault(require('@material-ui/icons/CheckCircle'));
-var CloseIcon = _interopDefault(require('@material-ui/icons/Close'));
-var ErrorIcon = _interopDefault(require('@material-ui/icons/Error'));
-var InfoIcon = _interopDefault(require('@material-ui/icons/Info'));
-var WarningIcon = _interopDefault(require('@material-ui/icons/Warning'));
-var Button = _interopDefault(require('@material-ui/core/Button'));
-var Dialog = _interopDefault(require('@material-ui/core/Dialog'));
-var DialogActions = _interopDefault(require('@material-ui/core/DialogActions'));
-var DialogContent = _interopDefault(require('@material-ui/core/DialogContent'));
-var DialogTitle = _interopDefault(require('@material-ui/core/DialogTitle'));
+var Chip = _interopDefault(require('@mui/material/Chip'));
+var Fab = _interopDefault(require('@mui/material/Fab'));
+var Grid = _interopDefault(require('@mui/material/Grid'));
+var DeleteIcon = _interopDefault(require('@mui/icons-material/Delete'));
+var IconButton = _interopDefault(require('@mui/material/IconButton'));
+var SnackbarContent = _interopDefault(require('@mui/material/SnackbarContent'));
+var styles$3 = require('@mui/styles');
+var CheckCircleIcon = _interopDefault(require('@mui/icons-material/CheckCircle'));
+var CloseIcon = _interopDefault(require('@mui/icons-material/Close'));
+var ErrorIcon = _interopDefault(require('@mui/icons-material/Error'));
+var InfoIcon = _interopDefault(require('@mui/icons-material/Info'));
+var WarningIcon = _interopDefault(require('@mui/icons-material/Warning'));
+var Button = _interopDefault(require('@mui/material/Button'));
+var Dialog = _interopDefault(require('@mui/material/Dialog'));
+var DialogActions = _interopDefault(require('@mui/material/DialogActions'));
+var DialogContent = _interopDefault(require('@mui/material/DialogContent'));
+var DialogTitle = _interopDefault(require('@mui/material/DialogTitle'));
 
 function isImage(file) {
   if (file.type.split('/')[0] === 'image') {
@@ -115,6 +116,8 @@ function readFile(file) {
 }
 
 var styles = function styles(_ref) {
+  var _palette$text;
+
   var palette = _ref.palette,
       shape = _ref.shape,
       spacing = _ref.spacing;
@@ -135,11 +138,11 @@ var styles = function styles(_ref) {
       height: 100,
       width: 'initial',
       maxWidth: '100%',
-      color: palette.text.primary,
+      color: palette === null || palette === void 0 ? void 0 : (_palette$text = palette.text) === null || _palette$text === void 0 ? void 0 : _palette$text.primary,
       transition: 'all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms',
       boxSizing: 'border-box',
       boxShadow: 'rgba(0, 0, 0, 0.12) 0 1px 6px, rgba(0, 0, 0, 0.12) 0 1px 4px',
-      borderRadius: shape.borderRadius,
+      borderRadius: shape === null || shape === void 0 ? void 0 : shape.borderRadius,
       zIndex: 5,
       opacity: 1
     },
@@ -147,8 +150,8 @@ var styles = function styles(_ref) {
       transition: '.5s ease',
       position: 'absolute',
       opacity: 0,
-      top: spacing(-1),
-      right: spacing(-1),
+      top: spacing === null || spacing === void 0 ? void 0 : spacing(-1),
+      right: spacing === null || spacing === void 0 ? void 0 : spacing(-1),
       width: 40,
       height: 40,
       '&:focus': {
@@ -230,7 +233,7 @@ process.env.NODE_ENV !== "production" ? PreviewList.propTypes = {
   showFileNames: PropTypes.bool,
   useChipsForPreview: PropTypes.bool
 } : void 0;
-var PreviewList$1 = styles$3.withStyles(styles, {
+var PreviewList$1 = withStyles(styles, {
   name: 'MuiDropzonePreviewList'
 })(PreviewList);
 
@@ -242,24 +245,26 @@ var variantIcon = {
 };
 
 var styles$1 = function styles(theme) {
+  var _theme$palette, _theme$palette$succes, _theme$palette2, _theme$palette2$error, _theme$palette3, _theme$palette3$info, _theme$palette4, _theme$palette4$warni, _theme$spacing;
+
   return {
     successAlert: {
-      backgroundColor: theme.palette.success.main
+      backgroundColor: theme === null || theme === void 0 ? void 0 : (_theme$palette = theme.palette) === null || _theme$palette === void 0 ? void 0 : (_theme$palette$succes = _theme$palette.success) === null || _theme$palette$succes === void 0 ? void 0 : _theme$palette$succes.main
     },
     errorAlert: {
-      backgroundColor: theme.palette.error.main
+      backgroundColor: theme === null || theme === void 0 ? void 0 : (_theme$palette2 = theme.palette) === null || _theme$palette2 === void 0 ? void 0 : (_theme$palette2$error = _theme$palette2.error) === null || _theme$palette2$error === void 0 ? void 0 : _theme$palette2$error.main
     },
     infoAlert: {
-      backgroundColor: theme.palette.info.main
+      backgroundColor: theme === null || theme === void 0 ? void 0 : (_theme$palette3 = theme.palette) === null || _theme$palette3 === void 0 ? void 0 : (_theme$palette3$info = _theme$palette3.info) === null || _theme$palette3$info === void 0 ? void 0 : _theme$palette3$info.main
     },
     warningAlert: {
-      backgroundColor: theme.palette.warning.main
+      backgroundColor: theme === null || theme === void 0 ? void 0 : (_theme$palette4 = theme.palette) === null || _theme$palette4 === void 0 ? void 0 : (_theme$palette4$warni = _theme$palette4.warning) === null || _theme$palette4$warni === void 0 ? void 0 : _theme$palette4$warni.main
     },
     message: {
       display: 'flex',
       alignItems: 'center',
       '& > svg': {
-        marginRight: theme.spacing(1)
+        marginRight: theme === null || theme === void 0 ? void 0 : (_theme$spacing = theme.spacing) === null || _theme$spacing === void 0 ? void 0 : _theme$spacing.call(theme, 1)
       }
     },
     icon: {
@@ -270,7 +275,7 @@ var styles$1 = function styles(theme) {
   };
 };
 
-function SnackbarContentWrapper(props) {
+var SnackbarContentWrapper = /*#__PURE__*/React.forwardRef(function (props, ref) {
   var classes = props.classes,
       className = props.className,
       message = props.message,
@@ -280,6 +285,7 @@ function SnackbarContentWrapper(props) {
 
   var Icon = variantIcon[variant];
   return /*#__PURE__*/React.createElement(SnackbarContent, _extends({
+    ref: ref,
     className: clsx(classes["".concat(variant, "Alert")], className),
     "aria-describedby": "client-snackbar",
     message: /*#__PURE__*/React.createElement("span", {
@@ -298,8 +304,7 @@ function SnackbarContentWrapper(props) {
       className: classes.icon
     }))]
   }, other));
-}
-
+});
 process.env.NODE_ENV !== "production" ? SnackbarContentWrapper.propTypes = {
   classes: PropTypes.object.isRequired,
   className: PropTypes.string,
@@ -307,6 +312,7 @@ process.env.NODE_ENV !== "production" ? SnackbarContentWrapper.propTypes = {
   onClose: PropTypes.func,
   variant: PropTypes.oneOf(['success', 'warning', 'error', 'info']).isRequired
 } : void 0;
+SnackbarContentWrapper.displayName = "SnackbarContentWrapper";
 var SnackbarContentWrapper$1 = styles$3.withStyles(styles$1, {
   name: 'MuiDropzoneSnackbar'
 })(SnackbarContentWrapper);
@@ -316,6 +322,8 @@ function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflec
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
 
 var styles$2 = function styles(_ref) {
+  var _palette$background, _palette$background2, _palette$background3, _palette$primary, _palette$error, _palette$error2, _palette$error3, _palette$error4, _palette$error5, _palette$text;
+
   var palette = _ref.palette,
       shape = _ref.shape,
       spacing = _ref.spacing;
@@ -332,10 +340,10 @@ var styles$2 = function styles(_ref) {
       position: 'relative',
       width: '100%',
       minHeight: '250px',
-      backgroundColor: palette.background.paper,
+      backgroundColor: palette === null || palette === void 0 ? void 0 : (_palette$background = palette.background) === null || _palette$background === void 0 ? void 0 : _palette$background.paper,
       border: 'dashed',
-      borderColor: palette.divider,
-      borderRadius: shape.borderRadius,
+      borderColor: palette === null || palette === void 0 ? void 0 : palette.divider,
+      borderRadius: shape === null || shape === void 0 ? void 0 : shape.borderRadius,
       boxSizing: 'border-box',
       cursor: 'pointer',
       overflow: 'hidden'
@@ -343,27 +351,27 @@ var styles$2 = function styles(_ref) {
     active: {
       animation: '$progress 2s linear infinite !important',
       // eslint-disable-next-line max-len
-      backgroundImage: "repeating-linear-gradient(-45deg, ".concat(palette.background.paper, ", ").concat(palette.background.paper, " 25px, ").concat(palette.divider, " 25px, ").concat(palette.divider, " 50px)"),
+      backgroundImage: "repeating-linear-gradient(-45deg, ".concat(palette === null || palette === void 0 ? void 0 : (_palette$background2 = palette.background) === null || _palette$background2 === void 0 ? void 0 : _palette$background2.paper, ", ").concat(palette === null || palette === void 0 ? void 0 : (_palette$background3 = palette.background) === null || _palette$background3 === void 0 ? void 0 : _palette$background3.paper, " 25px, ").concat(palette === null || palette === void 0 ? void 0 : palette.divider, " 25px, ").concat(palette === null || palette === void 0 ? void 0 : palette.divider, " 50px)"),
       backgroundSize: '150% 100%',
       border: 'solid',
-      borderColor: palette.primary.light
+      borderColor: palette === null || palette === void 0 ? void 0 : (_palette$primary = palette.primary) === null || _palette$primary === void 0 ? void 0 : _palette$primary.light
     },
     invalid: {
       // eslint-disable-next-line max-len
-      backgroundImage: "repeating-linear-gradient(-45deg, ".concat(palette.error.light, ", ").concat(palette.error.light, " 25px, ").concat(palette.error.dark, " 25px, ").concat(palette.error.dark, " 50px)"),
-      borderColor: palette.error.main
+      backgroundImage: "repeating-linear-gradient(-45deg, ".concat(palette === null || palette === void 0 ? void 0 : (_palette$error = palette.error) === null || _palette$error === void 0 ? void 0 : _palette$error.light, ", ").concat(palette === null || palette === void 0 ? void 0 : (_palette$error2 = palette.error) === null || _palette$error2 === void 0 ? void 0 : _palette$error2.light, " 25px, ").concat(palette === null || palette === void 0 ? void 0 : (_palette$error3 = palette.error) === null || _palette$error3 === void 0 ? void 0 : _palette$error3.dark, " 25px, ").concat(palette === null || palette === void 0 ? void 0 : (_palette$error4 = palette.error) === null || _palette$error4 === void 0 ? void 0 : _palette$error4.dark, " 50px)"),
+      borderColor: palette === null || palette === void 0 ? void 0 : (_palette$error5 = palette.error) === null || _palette$error5 === void 0 ? void 0 : _palette$error5.main
     },
     textContainer: {
       textAlign: 'center'
     },
     text: {
-      marginBottom: spacing(3),
-      marginTop: spacing(3)
+      marginBottom: spacing === null || spacing === void 0 ? void 0 : spacing(3),
+      marginTop: spacing === null || spacing === void 0 ? void 0 : spacing(3)
     },
     icon: {
       width: 51,
       height: 51,
-      color: palette.text.primary
+      color: palette === null || palette === void 0 ? void 0 : (_palette$text = palette.text) === null || _palette$text === void 0 ? void 0 : _palette$text.primary
     }
   };
 };
@@ -924,7 +932,7 @@ process.env.NODE_ENV !== "production" ? DropzoneAreaBase.propTypes = {
    */
   onAlert: PropTypes.func
 } : void 0;
-var DropzoneAreaBase$1 = styles$3.withStyles(styles$2, {
+var DropzoneAreaBase$1 = withStyles(styles$2, {
   name: 'MuiDropzoneArea'
 })(DropzoneAreaBase);
 
